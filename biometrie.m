@@ -83,7 +83,7 @@ for i=1:10
         if((p1==1)&&(bp1>=2)&&(bp1<=6)&&(ap1==1)&&
           ((p2==0)||(p4==0)||(p6==0))&&
           ((p4==0)||(p6==0)||(p8==0)))
-            tabPixel[] = [tabPixel,[x; y]];
+            tabPixel = [tabPixel,[x; y]];
             stopCond += 1;
           endif
       endfor
@@ -124,10 +124,11 @@ for i=1:10
     imgSeuil(tabPixel(1, i), tabPixel(2, i))=0;
   endfor
   toc = clock();
-  elapsed_time = etime(toc, tic);
-  disp(elapsed_time);
+  elapsed_time += etime(toc, tic);
+  
 %endwhile
 endfor
+disp(elapsed_time/10);%mean exec time for 10 iter
 
 figure(4);
 imshow(imgSeuil);
