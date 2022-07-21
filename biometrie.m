@@ -53,6 +53,8 @@ imshow(imgSeuil);
 stopCond = 1;
 
 %while (stopCond>0)
+elapsed_time = 0;
+
 for i=1:10
   tic = clock();
   stopCond = 0;
